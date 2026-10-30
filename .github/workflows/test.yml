@@ -43,10 +43,10 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
-      - id: chrome
-        uses: browser-actions/setup-chrome@v1
-        with:
-          chrome-version: stable
+      # Chrome for Testing: branded Chrome ignores --load-extension.
+      - name: install Chrome for Testing
+        run: |
+          out=$(npx -y @puppeteer/browsers install chrome@stable --path "$HOME/cft")
+          echo "$out"
+          echo "CHROMIUM=$(echo "$out" | tail -1 | awk '{print $2}')" >> "$GITHUB_ENV"
       - run: node tests/e2e/run.mjs
-        env:
-          CHROMIUM: ${{ steps.chrome.outputs.chrome-path }}
