@@ -11,8 +11,7 @@
 import { spawn, execFileSync } from "node:child_process";
 import { mkdtempSync, mkdirSync, copyFileSync, readFileSync, readdirSync, writeFileSync, existsSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
-import { createHash } from "node:crypto";
-import { realpathSync } from "node:fs";
+import { createHash, generateKeyPairSync } from "node:crypto";
 import { join, resolve } from "node:path";
 
 const ROOT = resolve(new URL("../..", import.meta.url).pathname);
@@ -53,23 +52,30 @@ function shape(file) {
   return JSON.stringify(["bookmark_bar", "other", "synced"].map((k) => (data.roots[k].children || []).map(walk)));
 }
 
-// Chrome's id for an unpacked extension: sha256 of its absolute path, first 32 hex digits mapped 0-f -> a-p.
-function extensionIds(dir) {
-  return [...new Set([dir, realpathSync(dir)])].map((p) =>
-    [...createHash("sha256").update(p).digest("hex").slice(0, 32)].map((c) => String.fromCharCode(97 + parseInt(c, 16))).join(""));
+// Give the test copy of the extension a manifest "key", so its id is known in advance
+// (Chrome derives it from the key: sha256 of the public key, first 32 hex digits mapped 0-f -> a-p).
+function pinId(extDir) {
+  const { publicKey } = generateKeyPairSync("rsa", { modulusLength: 2048 });
+  const der = publicKey.export({ type: "spki", format: "der" });
+  const manifestPath = join(extDir, "manifest.json");
+  const manifest = JSON.parse(readFileSync(manifestPath, "utf-8"));
+  manifest.key = der.toString("base64");
+  writeFileSync(manifestPath, JSON.stringify(manifest, null, 2));
+  return [...createHash("sha256").update(der).digest("hex").slice(0, 32)].map((c) => String.fromCharCode(97 + parseInt(c, 16))).join("");
 }
 
 async function withBrowser(extDir, fn) {
-  const wanted = extensionIds(extDir);
+  const wanted = [pinId(extDir)];
   const port = 9300 + Math.floor(Math.random() * 500);
   const proc = spawn(CHROMIUM, [
     `--user-data-dir=${profile}`, `--remote-debugging-port=${port}`, "--headless=new",
     "--no-first-run", "--no-default-browser-check", "--disable-sync",
+    ...(process.platform === "linux" ? ["--no-sandbox", "--disable-dev-shm-usage"] : []),
     `--disable-extensions-except=${extDir}`, `--load-extension=${extDir}`, "about:blank",
   ], { stdio: "ignore" });
   try {
     let targets = [];
-    for (let i = 0; i < 50; i++) {
+    for (let i = 0; i < 150; i++) {
       await sleep(200);
       try {
         targets = await (await fetch(`http://127.0.0.1:${port}/json/list`)).json();
@@ -78,7 +84,7 @@ async function withBrowser(extDir, fn) {
     }
     // Our service worker, not one of the browser's built-in component extensions.
     const sw = targets.find((t) => wanted.some((id) => t.url.startsWith(`chrome-extension://${id}/`)));
-    if (!sw) throw new Error("extension did not load");
+    if (!sw) throw new Error(`extension ${wanted[0]} did not load; targets:\n  ` + targets.map((t) => `${t.type} ${t.url}`).join("\n  "));
     const extId = new URL(sw.url).host;
     const version = await (await fetch(`http://127.0.0.1:${port}/json/version`)).json();
     const browser = await cdp(version.webSocketDebuggerUrl);
