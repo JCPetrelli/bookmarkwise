@@ -1,0 +1,33 @@
+{
+  "title": "Demo cleanup",
+  "ops": [
+    {"op": "delete", "id": "6", "reason": "same board as 'Sprint board', only a pinned ticket differs"},
+    {"op": "delete", "id": "9", "reason": "exact duplicate"},
+    {"op": "delete", "id": "12", "reason": "localhost; Harbor staging covers it"},
+    {"op": "delete", "id": "16", "reason": "view-source link"},
+    {"op": "delete", "id": "22", "reason": "same article with newsletter tracking"},
+    {"op": "delete", "id": "29", "reason": "exact duplicate of Reading / Python 3 documentation"},
+    {"op": "delete", "id": "19", "reason": "archived project"},
+    {"op": "delete", "id": "18", "reason": "archived project folder, empty after the line above"},
+    {"op": "delete", "id": "20", "reason": "empty folder"},
+    {"op": "update", "id": "4", "title": "Mail · Inbox"},
+    {"op": "update", "id": "5", "title": "Jira (Acme) · Sprint board"},
+    {"op": "update", "id": "8", "title": "Confluence (Acme) · Harbor API"},
+    {"op": "update", "id": "10", "title": "Jira (Acme) · Board (filter 12)", "reason": "near-twin of the next one"},
+    {"op": "update", "id": "11", "title": "Jira (Acme) · Board (filter 19)", "reason": "near-twin of the previous one"},
+    {"op": "update", "id": "13", "title": "Env · Harbor staging"},
+    {"op": "update", "id": "15", "title": "Env · Harbor admin", "url": "https://admin.harbor.example.org/dashboard", "reason": "login redirect -> the page it leads to"},
+    {"op": "update", "id": "17", "title": "Sheets · Q3 roadmap"},
+    {"op": "update", "id": "23", "title": "Article · Clear commit messages"},
+    {"op": "update", "id": "24", "title": "Docs · Python 3"},
+    {"op": "update", "id": "25", "title": "Docs · MDN JavaScript guide", "reason": "title was the URL"},
+    {"op": "update", "id": "26", "title": "Article · Long article (Medium)"},
+    {"op": "update", "id": "31", "title": "Figma · Recent files"},
+    {"op": "update", "id": "32", "title": "Figma · Harbor UI kit"},
+    {"op": "update", "id": "33", "title": "Tool · Color contrast checker"},
+    {"op": "create_folder", "key": "docs", "parent": "2", "title": "Docs", "index": 0},
+    {"op": "move", "id": "24", "parent": "new:docs"},
+    {"op": "move", "id": "25", "parent": "new:docs"},
+    {"op": "sort", "id": "7", "folders_first": true}
+  ]
+}

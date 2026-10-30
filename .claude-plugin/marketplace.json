@@ -1,0 +1,14 @@
+{
+  "name": "bookmarkwise",
+  "owner": {
+    "name": "Jacopo Castellano"
+  },
+  "description": "The bookmarkwise skill: tidy Chrome bookmarks in your own style, one reviewed plan at a time.",
+  "plugins": [
+    {
+      "name": "bookmarkwise",
+      "source": "./",
+      "description": "Deduplicate, relabel and reorganize Chrome bookmarks through a reviewed plan and a one-off extension."
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.DS_Store
+# working files: they list someone's bookmarks, never commit them
+work/
+inventory*.json
+plan*.json
+draft*.json
+undo*.json
+links*.json
+bookmarkwise-backup-*.json
+bookmarkwise-log-*.txt
+extension-*/
+# the demo draft is invented and documented
+!examples/demo-draft.json

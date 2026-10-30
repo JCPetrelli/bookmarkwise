@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Bookmarkwise apply</title>
+<link rel="stylesheet" href="apply.css">
+</head>
+<body>
+<main>
+  <h1>Bookmarkwise <span class="accent">apply</span></h1>
+  <p id="plan-meta" class="muted"></p>
+  <ul id="counts"></ul>
+
+  <section>
+    <h2><span class="step">1</span> Download a backup</h2>
+    <p class="muted">Saves every bookmark in this profile as one JSON file. Apply stays locked until you have one.</p>
+    <button id="backup">Download backup</button>
+    <span id="backup-state" class="muted"></span>
+  </section>
+
+  <section>
+    <h2><span class="step">2</span> Check the plan against your bookmarks</h2>
+    <p class="muted">Every bookmark the plan touches must still have the title, URL and folder it had when the plan was made. If anything changed, nothing is applied.</p>
+    <button id="check" class="secondary">Check again</button>
+    <div id="check-state"></div>
+  </section>
+
+  <section>
+    <h2><span class="step">3</span> Apply</h2>
+    <button id="apply" disabled>Apply the plan</button>
+    <span id="apply-state" class="muted"></span>
+  </section>
+
+  <details>
+    <summary>What the plan does</summary>
+    <ol id="ops"></ol>
+  </details>
+
+  <pre id="log" hidden></pre>
+  <button id="download-log" class="secondary" hidden>Download the log</button>
+</main>
+<script src="plan.js"></script>
+<script src="apply.js"></script>
+</body>
+</html>

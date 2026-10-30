@@ -1,0 +1,10 @@
+{
+  "name": "bookmarkwise",
+  "description": "Clean up Chrome bookmarks in your own style: an interview about naming, folders and what to remove, a reviewed plan, and a one-off extension that applies it through Chrome's bookmarks API after a backup. Never edits the Bookmarks file.",
+  "version": "0.1.0",
+  "author": { "name": "Jacopo Castellano" },
+  "homepage": "https://github.com/JCPetrelli/bookmarkwise",
+  "repository": "https://github.com/JCPetrelli/bookmarkwise",
+  "license": "MIT",
+  "keywords": ["skill", "chrome", "bookmarks", "cleanup", "deduplication", "chromium", "extension"]
+}

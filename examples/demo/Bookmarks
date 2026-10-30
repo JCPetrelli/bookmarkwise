@@ -1,0 +1,243 @@
+{
+   "checksum": "00000000000000000000000000000000",
+   "roots": {
+      "bookmark_bar": {
+         "id": "1",
+         "type": "folder",
+         "name": "Bookmarks bar",
+         "children": [
+            {
+               "id": "4",
+               "type": "url",
+               "name": "Inbox (12) - mail.example.org",
+               "url": "https://mail.example.org/inbox",
+               "date_added": "13370000000000000"
+            },
+            {
+               "id": "5",
+               "type": "url",
+               "name": "ACME CORP - SPRINT BOARD - Agile Board - Jira",
+               "url": "https://acme-corp.atlassian.net/jira/software/projects/HAR/boards/7",
+               "date_added": "13370000000000000"
+            },
+            {
+               "id": "6",
+               "type": "url",
+               "name": "Sprint board",
+               "url": "https://acme-corp.atlassian.net/jira/software/projects/HAR/boards/7?selectedIssue=HAR-311",
+               "date_added": "13370000000000000"
+            },
+            {
+               "id": "7",
+               "type": "folder",
+               "name": "Work",
+               "children": [
+                  {
+                     "id": "8",
+                     "type": "url",
+                     "name": "Harbor API - Confluence",
+                     "url": "https://acme-corp.atlassian.net/wiki/spaces/HAR/pages/1001/Harbor+API",
+                     "date_added": "13370000000000000"
+                  },
+                  {
+                     "id": "9",
+                     "type": "url",
+                     "name": "Harbor API - Confluence",
+                     "url": "https://acme-corp.atlassian.net/wiki/spaces/HAR/pages/1001/Harbor+API",
+                     "date_added": "13370000000000000"
+                  },
+                  {
+                     "id": "10",
+                     "type": "url",
+                     "name": "Board",
+                     "url": "https://acme-corp.atlassian.net/jira/software/projects/HAR/boards/7?quickFilter=12",
+                     "date_added": "13370000000000000"
+                  },
+                  {
+                     "id": "11",
+                     "type": "url",
+                     "name": "Board",
+                     "url": "https://acme-corp.atlassian.net/jira/software/projects/HAR/boards/7?quickFilter=19",
+                     "date_added": "13370000000000000"
+                  },
+                  {
+                     "id": "12",
+                     "type": "url",
+                     "name": "localhost:3000",
+                     "url": "http://localhost:3000/",
+                     "date_added": "13370000000000000"
+                  },
+                  {
+                     "id": "13",
+                     "type": "url",
+                     "name": "Harbor staging",
+                     "url": "https://staging.harbor.example.org/",
+                     "date_added": "13370000000000000"
+                  },
+                  {
+                     "id": "14",
+                     "type": "url",
+                     "name": "192.168.1.40:8080/admin",
+                     "url": "http://192.168.1.40:8080/admin",
+                     "date_added": "13370000000000000"
+                  },
+                  {
+                     "id": "15",
+                     "type": "url",
+                     "name": "Sign in - Harbor Admin",
+                     "url": "https://admin.harbor.example.org/login?next=%2Fdashboard",
+                     "date_added": "13370000000000000"
+                  },
+                  {
+                     "id": "16",
+                     "type": "url",
+                     "name": "view-source:https://harbor.example.org/",
+                     "url": "view-source:https://harbor.example.org/",
+                     "date_added": "13370000000000000"
+                  },
+                  {
+                     "id": "17",
+                     "type": "url",
+                     "name": "Q3 roadmap - Google Sheets",
+                     "url": "https://docs.google.com/spreadsheets/d/1AbCdEfGhIjKlMnOpQrStUvWxYz/edit#gid=0",
+                     "date_added": "13370000000000000"
+                  },
+                  {
+                     "id": "18",
+                     "type": "folder",
+                     "name": "Old project (archived)",
+                     "children": [
+                        {
+                           "id": "19",
+                           "type": "url",
+                           "name": "legacy-harbor - GitHub",
+                           "url": "https://github.com/acme-corp/legacy-harbor",
+                           "date_added": "13370000000000000"
+                        }
+                     ],
+                     "date_added": "13370000000000000"
+                  },
+                  {
+                     "id": "20",
+                     "type": "folder",
+                     "name": "Temp",
+                     "children": [],
+                     "date_added": "13370000000000000"
+                  }
+               ],
+               "date_added": "13370000000000000"
+            },
+            {
+               "id": "21",
+               "type": "folder",
+               "name": "Reading",
+               "children": [
+                  {
+                     "id": "22",
+                     "type": "url",
+                     "name": "How to Write Clear Commit Messages | Example Blog",
+                     "url": "https://blog.example.org/clear-commit-messages?utm_source=newsletter&utm_medium=email",
+                     "date_added": "13370000000000000"
+                  },
+                  {
+                     "id": "23",
+                     "type": "url",
+                     "name": "How to Write Clear Commit Messages | Example Blog",
+                     "url": "https://blog.example.org/clear-commit-messages",
+                     "date_added": "13370000000000000"
+                  },
+                  {
+                     "id": "24",
+                     "type": "url",
+                     "name": "Python 3 documentation",
+                     "url": "https://docs.python.org/3/",
+                     "date_added": "13370000000000000"
+                  },
+                  {
+                     "id": "25",
+                     "type": "url",
+                     "name": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide",
+                     "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide",
+                     "date_added": "13370000000000000"
+                  },
+                  {
+                     "id": "26",
+                     "type": "url",
+                     "name": "A very long article title that somebody pasted in full from the page header - Medium",
+                     "url": "https://medium.example.org/p/long-article",
+                     "date_added": "13370000000000000"
+                  }
+               ],
+               "date_added": "13370000000000000"
+            },
+            {
+               "id": "27",
+               "type": "url",
+               "name": "Dark mode toggle",
+               "url": "javascript:(()=>{document.documentElement.classList.toggle('dark')})()",
+               "date_added": "13370000000000000"
+            }
+         ],
+         "date_added": "13370000000000000"
+      },
+      "other": {
+         "id": "2",
+         "type": "folder",
+         "name": "Other bookmarks",
+         "children": [
+            {
+               "id": "28",
+               "type": "url",
+               "name": "Recipes - example.org",
+               "url": "https://recipes.example.org/",
+               "date_added": "13370000000000000"
+            },
+            {
+               "id": "29",
+               "type": "url",
+               "name": "Python 3 documentation",
+               "url": "https://docs.python.org/3/",
+               "date_added": "13370000000000000"
+            },
+            {
+               "id": "30",
+               "type": "folder",
+               "name": "Design",
+               "children": [
+                  {
+                     "id": "31",
+                     "type": "url",
+                     "name": "Figma",
+                     "url": "https://www.figma.com/files/recent",
+                     "date_added": "13370000000000000"
+                  },
+                  {
+                     "id": "32",
+                     "type": "url",
+                     "name": "Harbor UI kit \u2013 Figma",
+                     "url": "https://www.figma.com/design/AbC123/Harbor-UI-kit",
+                     "date_added": "13370000000000000"
+                  },
+                  {
+                     "id": "33",
+                     "type": "url",
+                     "name": "Color contrast checker",
+                     "url": "https://contrast.example.org/",
+                     "date_added": "13370000000000000"
+                  }
+               ],
+               "date_added": "13370000000000000"
+            }
+         ],
+         "date_added": "13370000000000000"
+      },
+      "synced": {
+         "id": "3",
+         "type": "folder",
+         "name": "Mobile bookmarks",
+         "children": [],
+         "date_added": "13370000000000000"
+      }
+   },
+   "version": 1
+}

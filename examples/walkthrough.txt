@@ -1,0 +1,96 @@
+$ bw inventory --bookmarks examples/demo/Bookmarks --out <work>/inventory.json
+bookmarks                25
+folders                  5
+exact duplicate groups   2
+near duplicate groups    2
+flagged bookmarks        13
+empty folders            1
+sync                     off or unknown
+
+flagged by kind:
+  local                  2
+  pinned-state           1
+  login-redirect         1
+  view-source            1
+  tracking-params        1
+  bookmarklet            1
+title issues:
+  site-suffix            6
+  title-is-url           2
+  long                   2
+
+full inventory: <work>/inventory.json
+
+$ bw freeze examples/demo-draft.json --bookmarks examples/demo/Bookmarks --out <work>/plan.json
+frozen 28 operations (1 create_folder, 15 update, 2 move, 9 delete, 1 sort) -> <work>/plan.json
+plan 6d48268b: show it with `show`, approve it only after the user says yes
+
+$ bw show <work>/plan.json
+# Demo cleanup (plan 6d48268b, frozen)
+
+## create folder (1)
+
+| New folder | Inside | Why |
+|---|---|---|
+| Docs | Other bookmarks |  |
+
+## update (15)
+
+| Now | Becomes | Folder | Why |
+|---|---|---|---|
+| Inbox (12) - mail.example.org | title: Mail · Inbox | Bookmarks bar |  |
+| ACME CORP - SPRINT BOARD - Agile Board - Jira | title: Jira (Acme) · Sprint board | Bookmarks bar |  |
+| Harbor API - Confluence | title: Confluence (Acme) · Harbor API | Bookmarks bar / Work |  |
+| Board | title: Jira (Acme) · Board (filter 12) | Bookmarks bar / Work | near-twin of the next one |
+| Board | title: Jira (Acme) · Board (filter 19) | Bookmarks bar / Work | near-twin of the previous one |
+| Harbor staging | title: Env · Harbor staging | Bookmarks bar / Work |  |
+| Sign in - Harbor Admin | title: Env · Harbor admin · url: https://admin.harbor.example.org/dashboard | Bookmarks bar / Work | login redirect -> the page it leads to |
+| Q3 roadmap - Google Sheets | title: Sheets · Q3 roadmap | Bookmarks bar / Work |  |
+| How to Write Clear Commit Messages \| Example Blog | title: Article · Clear commit messages | Bookmarks bar / Reading |  |
+| Python 3 documentation | title: Docs · Python 3 | Bookmarks bar / Reading |  |
+| https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide | title: Docs · MDN JavaScript guide | Bookmarks bar / Reading | title was the URL |
+| A very long article title that somebody pasted in full from the page header - Medium | title: Article · Long article (Medium) | Bookmarks bar / Reading |  |
+| Figma | title: Figma · Recent files | Other bookmarks / Design |  |
+| Harbor UI kit – Figma | title: Figma · Harbor UI kit | Other bookmarks / Design |  |
+| Color contrast checker | title: Tool · Color contrast checker | Other bookmarks / Design |  |
+
+## move (2)
+
+| Bookmark | From | To | Why |
+|---|---|---|---|
+| Python 3 documentation | Bookmarks bar / Reading | new folder 'Docs' |  |
+| https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide | Bookmarks bar / Reading | new folder 'Docs' |  |
+
+## delete (9)
+
+| Bookmark | URL | Folder | Why |
+|---|---|---|---|
+| legacy-harbor - GitHub | https://github.com/acme-corp/legacy-harbor | Bookmarks bar / Work / Old project (archived) | archived project |
+| Harbor API - Confluence | https://acme-corp.atlassian.net/wiki/spaces/HAR/pages/1001/Harbor+API | Bookmarks bar / Work | exact duplicate |
+| localhost:3000 | http://localhost:3000/ | Bookmarks bar / Work | localhost; Harbor staging covers it |
+| view-source:https://harbor.example.org/ | view-source:https://harbor.example.org/ | Bookmarks bar / Work | view-source link |
+| How to Write Clear Commit Messages \| Example Blog | https://blog.example.org/clear-commit-messages?utm_source=newsletter&utm_medium=email | Bookmarks bar / Reading | same article with newsletter tracking |
+| Sprint board | https://acme-corp.atlassian.net/jira/software/projects/HAR/boards/7?selectedIssue=HAR-311 | Bookmarks bar | same board as 'Sprint board', only a pinned ticket differs |
+| Python 3 documentation | https://docs.python.org/3/ | Other bookmarks | exact duplicate of Reading / Python 3 documentation |
+| Old project (archived) | (folder) | Bookmarks bar / Work | archived project folder, empty after the line above |
+| Temp | (folder) | Bookmarks bar / Work | empty folder |
+
+## sort (1)
+
+| Folder | Order | Why |
+|---|---|---|
+| Work | folders first |  |
+
+
+$ bw build <work>/plan.json --out <work>/extension
+the plan is not approved: show it to the user, then run `approve` after their yes
+
+$ bw approve <work>/plan.json
+plan 6d48268b approved (28 operations)
+
+$ bw check <work>/plan.json --bookmarks examples/demo/Bookmarks
+no drift: all 28 targets still match the plan
+
+$ bw build <work>/plan.json --out <work>/extension
+extension for plan 6d48268b written to <work>/extension
+
